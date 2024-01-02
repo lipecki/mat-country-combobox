@@ -123,6 +123,8 @@ dist
 .vscode-test
 
 .vscode
+.angular
+.angular/**.*
 
 # yarn v2
 .yarn/cache
