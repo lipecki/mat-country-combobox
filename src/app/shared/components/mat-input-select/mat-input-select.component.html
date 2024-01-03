@@ -1,7 +1,7 @@
 <mat-form-field [appearance]="appearance">
     <input matInput [matAutocomplete]="auto" [value]="getDisplayValue(this.selectedOption)">
 
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionsSelected($event)">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
         @for (option of filteredOptions; track option) {
         <mat-option [value]="option.name">{{getSelectionValue(option)}}
             <mat-icon [svgIcon]="getIconName(option)"></mat-icon>

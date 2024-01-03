@@ -65,7 +65,7 @@ export class MatInputSelectComponent implements OnInit {
     return iconName;
   }
 
-  onOptionsSelected($event: MatAutocompleteSelectedEvent) {
+  onOptionSelected($event: MatAutocompleteSelectedEvent) {
     this.selectedOption = this.options.find(
       (country) => country.name === $event.option.value
     );
