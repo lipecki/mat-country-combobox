@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatInputSelectComponent } from './mat-input-select.component';
+import { MatCountryComboboxComponent } from './mat-country-combobox.component';
 
 describe('MatInputSelectComponent', () => {
-  let component: MatInputSelectComponent;
-  let fixture: ComponentFixture<MatInputSelectComponent>;
+  let component: MatCountryComboboxComponent;
+  let fixture: ComponentFixture<MatCountryComboboxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatInputSelectComponent]
+      imports: [MatCountryComboboxComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(MatInputSelectComponent);
+    fixture = TestBed.createComponent(MatCountryComboboxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

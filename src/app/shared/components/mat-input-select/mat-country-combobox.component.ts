@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
@@ -16,15 +16,17 @@ import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/fo
     MatAutocompleteModule,
     MatFormFieldModule
   ],
-  templateUrl: './mat-input-select.component.html',
-  styleUrl: './mat-input-select.component.scss'
+  templateUrl: './mat-country-combobox.component.html',
+  styleUrl: './mat-country-combobox.component.scss'
 })
-export class MatInputSelectComponent implements OnInit {
+export class MatCountryComboboxComponent implements OnInit {
 
   selectedOption: CountryData | undefined;
 
   options: CountryData[] = countryData;
   filteredOptions: CountryData[] = this.options.slice(0, 15);
+
+  @Input() containerClass = "container-class"
 
   @Input() displayKeys: Array<keyof CountryData> = ['name'];
   @Input() displayValueSeparator: string = ' - ';
@@ -34,6 +36,8 @@ export class MatInputSelectComponent implements OnInit {
 
   @Input() iconKey: keyof CountryData = "alpha2Code";
   @Input() appearance: MatFormFieldAppearance = "fill";
+
+  @Output() countrySelection = new EventEmitter<CountryData>();
 
   ngOnInit(): void {
     if (!this.selectionKeys) {
@@ -69,6 +73,7 @@ export class MatInputSelectComponent implements OnInit {
     this.selectedOption = this.options.find(
       (country) => country.name === $event.option.value
     );
+      this.countrySelection.emit(this.selectedOption);
   }
 
 }

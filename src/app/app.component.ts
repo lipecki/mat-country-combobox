@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { MatInputSelectComponent } from './shared/components/mat-input-select/mat-input-select.component';
+import { MatCountryComboboxComponent } from './shared/components/mat-input-select/mat-country-combobox.component';
 import { FlagIconService } from './shared/services/flag-icon.service';
 import { CountryData } from './shared/models/country-data';
 
@@ -11,11 +11,13 @@ import { CountryData } from './shared/models/country-data';
   imports: [
     CommonModule,
     RouterOutlet,
-    MatInputSelectComponent],
+    MatCountryComboboxComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
+  phoneNumberSelection?: CountryData;
+
   title = 'Country Selection';
   countryDisplayKeys: Array<keyof CountryData> = ['name', 'alpha2Code']
 
@@ -23,5 +25,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.flagIconService.registerIcons();
+  }
+
+  updateCallingCodeSelection(country: CountryData) {
+    this.phoneNumberSelection = country;
   }
 }
