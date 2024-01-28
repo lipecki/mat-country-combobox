@@ -1,4 +1,6 @@
-export const COUNTRIES_DB_BY = [
+import { CountryData } from "../../../models/country-data";
+
+export const COUNTRIES_DB_BY: CountryData[] = [
   {
     name: 'Афганістан',
     alpha2Code: 'AF',

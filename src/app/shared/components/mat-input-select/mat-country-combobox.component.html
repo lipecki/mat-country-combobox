@@ -1,16 +1,25 @@
 <div [class]="containerClass">
-    <mat-form-field [appearance]="appearance">
-        <input matInput [matAutocomplete]="auto" [value]="getDisplayValue(this.selectedOption)" (keyup)="onKeyUpEvent($event)">
+  <mat-form-field [appearance]="appearance">
+    <input
+      matInput
+      [matAutocomplete]="auto"
+      [value]="getDisplayValue(this.selectedOption)"
+      (keyup)="onKeyUpEvent($event)"
+    />
 
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
-            @for (option of filteredOptions; track option) {
-            <mat-option [value]="option.name">{{getSelectionValue(option)}}
-                <mat-icon [svgIcon]="getIconName(option)"></mat-icon>
-            </mat-option>
-            }
-        </mat-autocomplete>
-        <span class="icon" matPrefix>
-            <mat-icon [svgIcon]="getIconName(this.selectedOption)"></mat-icon>
-        </span>
-    </mat-form-field>
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      (optionSelected)="onOptionSelected($event)"
+    >
+      @for (option of filteredOptions; track option) {
+      <mat-option [value]="option.name"
+        >{{ getSelectionValue(option) }}
+        <mat-icon [svgIcon]="getIconName(option)"></mat-icon>
+      </mat-option>
+      }
+    </mat-autocomplete>
+    <span class="icon" matPrefix>
+      <mat-icon [svgIcon]="getIconName(this.selectedOption)"></mat-icon>
+    </span>
+  </mat-form-field>
 </div>

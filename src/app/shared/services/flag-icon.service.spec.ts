@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { FlagIconService } from './flag-icon.service';
+import { FlagIconService } from "./flag-icon.service";
 
-describe('FlagIconService', () => {
+describe("FlagIconService", () => {
   let service: FlagIconService;
 
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('FlagIconService', () => {
     service = TestBed.inject(FlagIconService);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 });

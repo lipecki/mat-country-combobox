@@ -1,35 +1,40 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 import { MatIconModule } from "@angular/material/icon";
 import { MatInput, MatInputModule } from "@angular/material/input";
-import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
-import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from "@angular/material/autocomplete";
+import {
+  MatFormFieldAppearance,
+  MatFormFieldModule,
+} from "@angular/material/form-field";
+import {
+  MatAutocompleteModule,
+  MatAutocompleteSelectedEvent,
+} from "@angular/material/autocomplete";
 
-import { countryData } from '../../../../assets/countryData.json';
-import { CountryData } from '../../models/country-data';
+import { countryData } from "../../../../assets/countryData.json";
+import { CountryData } from "../../models/country-data";
 
 @Component({
-  selector: 'mat-country-combobox',
+  selector: "mat-country-combobox",
   standalone: true,
   imports: [
     MatInputModule,
     MatIconModule,
     MatAutocompleteModule,
-    MatFormFieldModule
+    MatFormFieldModule,
   ],
-  templateUrl: './mat-country-combobox.component.html',
-  styleUrl: './mat-country-combobox.component.scss'
+  templateUrl: "./mat-country-combobox.component.html",
+  styleUrl: "./mat-country-combobox.component.scss",
 })
 export class MatCountryComboboxComponent implements OnInit {
-
   @Input() filterSize = 15;
-  @Input() containerClass = "container-class"
+  @Input() containerClass = "container-class";
 
-  @Input() displayKeys: Array<keyof CountryData> = ['name'];
-  @Input() displayValueSeparator: string = ' - ';
+  @Input() displayKeys: Array<keyof CountryData> = ["name"];
+  @Input() displayValueSeparator: string = " - ";
 
   @Input() selectionKeys!: Array<keyof CountryData>;
-  @Input() selectionValueSeparator: string = ' - ';
+  @Input() selectionValueSeparator: string = " - ";
 
   @Input() iconKey: keyof CountryData = "alpha2Code";
   @Input() appearance: MatFormFieldAppearance = "fill";
@@ -49,7 +54,9 @@ export class MatCountryComboboxComponent implements OnInit {
   getDisplayValue(option?: CountryData) {
     let value = "";
     if (option) {
-      value = this.displayKeys.map(key => option[key]).join(this.displayValueSeparator);
+      value = this.displayKeys
+        .map((key) => option[key])
+        .join(this.displayValueSeparator);
     }
     return value;
   }
@@ -57,7 +64,9 @@ export class MatCountryComboboxComponent implements OnInit {
   getSelectionValue(option?: CountryData) {
     let value = "";
     if (option) {
-      value = this.selectionKeys.map(key => option[key]).join(this.selectionValueSeparator);
+      value = this.selectionKeys
+        .map((key) => option[key])
+        .join(this.selectionValueSeparator);
     }
     return value;
   }
@@ -90,17 +99,14 @@ export class MatCountryComboboxComponent implements OnInit {
     } else {
       this.filteredOptions = this.options.filter(
         (option: CountryData) =>
-        (option.name?.toLowerCase().includes(filterValue) ||
+          option.name?.toLowerCase().includes(filterValue) ||
           option.alpha2Code.toLowerCase().includes(filterValue) ||
           option.alpha3Code?.toLowerCase().includes(filterValue) ||
-          this.getDisplayValue(option)
-            .toLocaleLowerCase()
-            .includes(filterValue))
+          this.getDisplayValue(option).toLocaleLowerCase().includes(filterValue)
       );
     }
     if (this.filterSize) {
       this.filteredOptions = this.filteredOptions.slice(0, this.filterSize);
     }
   }
-
 }

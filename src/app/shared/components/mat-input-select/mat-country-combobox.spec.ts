@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { MatCountryComboboxComponent } from './mat-country-combobox.component';
+import { MatCountryComboboxComponent } from "./mat-country-combobox.component";
 
-describe('MatInputSelectComponent', () => {
+describe("MatInputSelectComponent", () => {
   let component: MatCountryComboboxComponent;
   let fixture: ComponentFixture<MatCountryComboboxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatCountryComboboxComponent]
-    })
-    .compileComponents();
-    
+      imports: [MatCountryComboboxComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(MatCountryComboboxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
