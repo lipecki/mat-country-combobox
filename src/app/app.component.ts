@@ -17,6 +17,7 @@ import { CountryData } from './shared/models/country-data';
 })
 export class AppComponent implements OnInit {
   phoneNumberSelection?: CountryData;
+  countryCodeSelection?: CountryData;
 
   title = 'Country Selection';
   countryDisplayKeys: Array<keyof CountryData> = ['name', 'alpha2Code']
@@ -29,5 +30,9 @@ export class AppComponent implements OnInit {
 
   updateCallingCodeSelection(country: CountryData) {
     this.phoneNumberSelection = country;
+  }
+
+  updateCountryCodeSelection(country: CountryData) {
+    this.countryCodeSelection = country;
   }
 }

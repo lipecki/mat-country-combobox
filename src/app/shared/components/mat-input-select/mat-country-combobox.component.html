@@ -1,6 +1,6 @@
 <div [class]="containerClass">
     <mat-form-field [appearance]="appearance">
-        <input matInput [matAutocomplete]="auto" [value]="getDisplayValue(this.selectedOption)">
+        <input matInput [matAutocomplete]="auto" [value]="getDisplayValue(this.selectedOption)" (keyup)="onKeyUpEvent($event)">
 
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
             @for (option of filteredOptions; track option) {
