@@ -18,7 +18,7 @@
       </mat-option>
       }
     </mat-autocomplete>
-    <span class="icon" matPrefix>
+    <span [class]="iconClass" matPrefix>
       <mat-icon [svgIcon]="getIconName(this.selectedOption)"></mat-icon>
     </span>
   </mat-form-field>
