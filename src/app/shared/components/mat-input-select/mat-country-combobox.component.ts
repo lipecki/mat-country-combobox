@@ -29,7 +29,7 @@ import { CountryData } from "../../models/country-data";
 export class MatCountryComboboxComponent implements OnInit {
   @Input() filterSize = 15;
   @Input() containerClass = "container-class";
-  @Input() iconClass = "icon"
+  @Input() iconClass = "icon";
 
   @Input() displayKeys: Array<keyof CountryData> = ["name"];
   @Input() displayValueSeparator: string = " - ";

@@ -11,7 +11,7 @@
       #auto="matAutocomplete"
       (optionSelected)="onOptionSelected($event)"
     >
-      @for (option of filteredOptions; track option) {
+      @for (option of filteredOptions; track option.alpha2Code) {
       <mat-option [value]="option.name"
         >{{ getSelectionValue(option) }}
         <mat-icon [svgIcon]="getIconName(option)"></mat-icon>
